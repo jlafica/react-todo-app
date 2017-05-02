@@ -9,6 +9,7 @@
   display: block;
   margin: 5px 0;
   padding: 10px;
+  position: relative;
 
   &::after {
     clear: both;
@@ -27,13 +28,16 @@
   color: #fff;
   cursor: pointer;
   display: block;
-  float: right;
-  font-size: 14px;
-  height: 23px;
+  font-size: 15px;
+  height: 26px;
+  position: absolute;
+  right: 10px;
   text-align: center;
-  width: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
 
   &:hover {
-    background-color: #ee3c3c;
+    background-color: #ee2b2b;
   }
 }

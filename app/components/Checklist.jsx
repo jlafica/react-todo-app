@@ -1,5 +1,5 @@
-var React = require('react');
-var Form = require('Form');
+var React = require("react");
+var Form = require("Form");
 
 var Checklist = React.createClass({
   getInitialState() {
@@ -21,12 +21,10 @@ var Checklist = React.createClass({
     });
   },
 
-  removeItem(e){
-    var parentListItemId = e.target.getAttribute('data-target-parent');
+  removeItem(e) {
+    var parentListItemId = e.target.getAttribute("data-target-parent");
     var { items } = this.state.list;
-    var updatedList = items.filter((item, index) => {
-      return index !== parseInt(parentListItemId);
-    });
+    var updatedList = items.filter((item, index) => { return index !== parseInt(parentListItemId); });
 
     this.setState({
       list: {
@@ -39,15 +37,16 @@ var Checklist = React.createClass({
     var { items } = this.state.list;
     var output = [];
 
+    localStorage.setItem("checklist", JSON.stringify(items));
+
     items.forEach((item, index) => {
       output.push(
         <li className="list-item" key={index} id={index}>
-          {item} <span onClick={this.removeItem} className="remove-item" data-target-parent={index}>x</span>
+          <span>{item}</span>
+          <span onClick={this.removeItem} className="remove-item" data-target-parent={index}>x</span>
         </li>
       );
     });
-
-    localStorage.setItem("checklist", JSON.stringify(items));
 
     return (
       <div className="row">
