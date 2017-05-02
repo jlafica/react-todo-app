@@ -38,6 +38,7 @@ var Checklist = React.createClass({
     var output = [];
 
     localStorage.setItem("checklist", JSON.stringify(items));
+    console.log(JSON.parse(localStorage.getItem("checklist")));
 
     items.forEach((item, index) => {
       output.push(
